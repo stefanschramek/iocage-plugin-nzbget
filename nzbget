@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: nzbget
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# nzbget_enable (bool):    Set to NO by default.
+#                Set it to YES to enable it.
+
+. /etc/rc.subr
+
+name=nzbget
+rcvar=${name}_enable
+
+load_rc_config $name
+
+: ${nzbget_enable:=NO}
+
+start_cmd="${name}_start"
+status_cmd="${name}_status"
+stop_cmd="${name}_stop"
+command="/usr/local/nzbget/nzbget"
+
+nzbget_start() {
+	# artificial sleep because it doesnt want to start after a restart without it
+	sleep .5
+	${command} -D
+	echo "${name} started"
+}
+
+nzbget_status() {
+	${command} -L S
+}
+
+nzbget_stop() {
+	${command} -Q
+	# artificial sleep because stop is backgrounded
+	sleep 3
+	echo "${name} stopped"
+}
+
+run_rc_command "$1"
