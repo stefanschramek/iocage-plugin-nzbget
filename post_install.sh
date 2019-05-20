@@ -1,7 +1,7 @@
 #!/bin/sh
 
-#ln -s /usr/local/bin/python2.7 /usr/bin/python
-#ln -s /usr/local/bin/python2.7 /usr/bin/python2
+ln -s /usr/local/bin/python2.7 /usr/bin/python
+ln -s /usr/local/bin/python2.7 /usr/bin/python2
 
 fetch https://nzbget.net/download/nzbget-latest-bin-freebsd.run -o /usr/local/
 
