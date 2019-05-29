@@ -12,7 +12,6 @@ pw user add nzbget -c nzbget -u 504 -d /nonexistent -s /usr/bin/nologin
 
 chown -R nzbget:nzbget /usr/local/nzbget
 
-#fetch https://raw.githubusercontent.com/stefanschramek/iocage-plugin-nzbget/master/nzbget -o /etc/rc.d/
 chmod u+x /etc/rc.d/nzbget
 sysrc "nzbget_enable=YES"
 service nzbget start
