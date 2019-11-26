@@ -25,11 +25,12 @@ start_cmd="${name}_start"
 status_cmd="${name}_status"
 stop_cmd="${name}_stop"
 command="/usr/local/nzbget/nzbget"
+config="/config"
 
 nzbget_start() {
 	# artificial sleep because it doesnt want to start after a restart without it
 	sleep .5
-	${command} -D
+	${command} -D -c ${config}/nzbget.conf
 	echo "${name} started"
 }
 
