@@ -3,8 +3,9 @@
 ln -s /usr/local/bin/python2.7 /usr/local/bin/python
 ln -s /usr/local/bin/python2.7 /usr/local/bin/python2
 
-#Install pip for Python package managment
+#Install pip for Python package management
 python -m ensurepip
+pip install --upgrade pip
 
 fetch https://nzbget.net/download/nzbget-latest-bin-freebsd.run -o /usr/local/
 
